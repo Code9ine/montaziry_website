@@ -4,7 +4,7 @@ import React from "react";
 
 const HomeHeader = () => {
 	return (
-		<div className='mx-2 bg-gray-100 p-4'>
+		<div className='mx-2 bg-gray-100 md:p-4 p-0'>
 			<Grid className='flex'>
 				<Grid.Col span={5}>
 					<Image
