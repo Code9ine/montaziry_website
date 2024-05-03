@@ -6,7 +6,7 @@ import {
 	ColorSchemeScript,
 	DirectionProvider,
 	MantineProvider,
-  useDirection,
+	useDirection,
 } from "@mantine/core";
 import ProgressProvider from "@/providers/progress.provider";
 import { mantineTheme } from "@/styles/Theme";
@@ -24,7 +24,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const RootLayout = ({ children }) => {
 	return (
-		<html lang="en">
+		<html lang='en'>
 			<head>
 				<ColorSchemeScript />
 			</head>
@@ -32,13 +32,13 @@ const RootLayout = ({ children }) => {
 			<body className={inter.className}>
 				<I18nextProvider i18n={i18n}>
 					<LanguageProvider>
-						<DirectionProvider >
-							<MantineProvider theme={mantineTheme}>
+						<MantineProvider theme={mantineTheme}>
+							<DirectionProvider>
 								<HeaderSimple />
 								{children}
 								<ProgressProvider />
-							</MantineProvider>
-						</DirectionProvider>
+							</DirectionProvider>
+						</MantineProvider>
 					</LanguageProvider>
 				</I18nextProvider>
 			</body>
