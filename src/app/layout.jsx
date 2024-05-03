@@ -1,8 +1,13 @@
-"use client"
+"use client";
 import { Inter } from "next/font/google";
 import "@mantine/core/styles.css";
 import "@/styles/globals.css";
-import { ColorSchemeScript, DirectionProvider, MantineProvider } from "@mantine/core";
+import {
+	ColorSchemeScript,
+	DirectionProvider,
+	MantineProvider,
+  useDirection,
+} from "@mantine/core";
 import ProgressProvider from "@/providers/progress.provider";
 import { mantineTheme } from "@/styles/Theme";
 import { HeaderSimple } from "@/components/Navbar";
@@ -18,17 +23,16 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 const RootLayout = ({ children }) => {
-  return (
+	return (
 		<html lang="en">
 			<head>
-				<head>
-					<ColorSchemeScript />
-				</head>
+				<ColorSchemeScript />
 			</head>
+
 			<body className={inter.className}>
 				<I18nextProvider i18n={i18n}>
 					<LanguageProvider>
-						<DirectionProvider>
+						<DirectionProvider >
 							<MantineProvider theme={mantineTheme}>
 								<HeaderSimple />
 								{children}

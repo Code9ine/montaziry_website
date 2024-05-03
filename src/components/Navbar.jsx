@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import { Container, Group, Burger, AspectRatio, Button } from "@mantine/core";
+import { Container, Group, Burger, AspectRatio, Button, useDirection } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import classes from "../styles/HeaderMegaMenu.module.css";
@@ -21,6 +21,7 @@ export function HeaderSimple() {
 	const [opened, { toggle }] = useDisclosure(false);
 	const [active, setActive] = useState(links[0].link);
   const { toggleLanguage } = useLanguage();
+  const { toggleDirection ,dir } = useDirection();
 
 	const items = links.map((link) => (
 		<a
@@ -39,7 +40,7 @@ export function HeaderSimple() {
 
 	return (
 		<>
-			<Container size={"lg"} className={classes.container}>
+    <Container   size={"lg"} className={classes.container}>
 				<div className="top-landing">
 					<AspectRatio ratio={1080 / 400}>
 						<Image src={"/images/top-bg.jpg"} alt={""} fill={true} />
@@ -52,7 +53,7 @@ export function HeaderSimple() {
 						</Group>
 						<div
 							className="hover:cursor-pointer hover:bg-gray-400 p-2 transition-all duration-150 rounded-full"
-							onClick={toggleLanguage}
+							onClick={()=>{toggleLanguage(); toggleDirection();}}
 						>
 							<LangIcon color="red" width={20} height={20} />
 						</div>
