@@ -30,9 +30,9 @@ export function HeaderSimple() {
 	const { toggleLanguage } = useLanguage();
 	const { toggleDirection, dir } = useDirection();
 
-	const items = links.map((link) => (
+	const items = links.map((link, i) => (
 		<a
-			key={link.label}
+			key={i}
 			href={link.link}
 			className={classes.link}
 			data-active={active === link.link || undefined}

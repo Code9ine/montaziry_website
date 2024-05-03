@@ -1,6 +1,6 @@
 import { Card, Image, Text, Badge, Button } from "@mantine/core";
 
-export function SingleCardWorksBy({ title, text, src, linkProps, more }) {
+export function SingleCardWorksBy({ title, text, src, linkProps, more, key }) {
 	// const linkProps = {
 	// 	href: "https://mantine.dev",
 	// 	target: "_blank",
@@ -8,7 +8,11 @@ export function SingleCardWorksBy({ title, text, src, linkProps, more }) {
 	// };
 
 	return (
-		<Card withBorder radius='md' className='relative hover:bg-gray-100 my-2'>
+		<Card
+			withBorder
+			radius='md'
+			className='relative hover:bg-gray-100 my-2'
+			key={key}>
 			<Card.Section>
 				<a {...linkProps}>
 					<Image src={src} height={180} />

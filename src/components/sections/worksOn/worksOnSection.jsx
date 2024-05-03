@@ -41,6 +41,7 @@ const WorksOnSection = () => {
 					src={item.src}
 					text={item.text}
 					more={item.more}
+					key={i}
 				/>
 			))}
 		</div>
