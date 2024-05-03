@@ -1,5 +1,5 @@
 import React from "react";
-import MainTitle from "../mainTitle";
+import LeftMainTitle from "../leftMainTitle";
 
 const HomeCategory = () => {
 	const categories = [
@@ -13,18 +13,18 @@ const HomeCategory = () => {
 		{ id: 7, title: "Works on Dr.Montaziry" },
 	];
 	return (
-		<div>
-			<MainTitle title='Categories' />
+		<>
+			<LeftMainTitle title='Categories' />
 			<div className='my-4'>
 				{categories.map((item, i) => (
 					<div
 						key={i}
-						className='text-sm bg-gray-300  px-2 border-l-[6px] border-slate-800 my-[1px] hover:cursor-pointer hover:bg-blue-400 hover:text-white transition-all duration-100'>
+						className='text-sm bg-gray-300 px-2 border-l-[6px] border-slate-800 my-[1px] hover:cursor-pointer hover:bg-blue-400 hover:text-white transition-all duration-100'>
 						{item.title}
 					</div>
 				))}
 			</div>
-		</div>
+		</>
 	);
 };
 

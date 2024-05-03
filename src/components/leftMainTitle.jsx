@@ -1,6 +1,6 @@
 import React from "react";
 
-const MainTitle = ({ title }) => {
+const LeftMainTitle = ({ title }) => {
 	return (
 		<>
 			<div className='h-1 w-full bg-gray-300'></div>
@@ -11,4 +11,4 @@ const MainTitle = ({ title }) => {
 	);
 };
 
-export default MainTitle;
+export default LeftMainTitle;
