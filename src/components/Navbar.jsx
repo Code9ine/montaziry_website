@@ -7,6 +7,11 @@ import {
 	AspectRatio,
 	Button,
 	useDirection,
+	Drawer,
+	Collapse,
+	ScrollArea,
+	Divider,
+	rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
@@ -25,7 +30,7 @@ const links = [
 ];
 
 export function HeaderSimple() {
-	const [opened, { toggle }] = useDisclosure(false);
+	const [opened, { toggle, close }] = useDisclosure(false);
 	const [active, setActive] = useState(links[0].link);
 	const { toggleLanguage } = useLanguage();
 	const { toggleDirection, dir } = useDirection();
@@ -74,6 +79,30 @@ export function HeaderSimple() {
 						/>
 					</div>
 				</header>
+
+				<Drawer
+					opened={opened}
+					onClose={close}
+					size='100%'
+					padding='md'
+					title='Navigation'
+					hiddenFrom='sm'
+					zIndex={1000000}>
+					<ScrollArea h={`calc(100vh - ${rem(80)})`} mx='-md'>
+						<Divider my='sm' />
+
+						<a href='#' className={classes.link}>
+							Home
+						</a>
+
+						<a href='#' className={classes.link}>
+							Learn
+						</a>
+						<a href='#' className={classes.link}>
+							Academy
+						</a>
+					</ScrollArea>
+				</Drawer>
 			</Container>
 		</>
 	);
