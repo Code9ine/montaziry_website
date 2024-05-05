@@ -94,16 +94,7 @@ export function HeaderSimple() {
 					<ScrollArea h={`calc(100vh - ${rem(80)})`} mx='-md'>
 						<Divider my='sm' />
 
-						<a href='#' className={classes.link}>
-							Home
-						</a>
-
-						<a href='#' className={classes.link}>
-							Learn
-						</a>
-						<a href='#' className={classes.link}>
-							Academy
-						</a>
+						{items}
 					</ScrollArea>
 				</Drawer>
 			</Container>
