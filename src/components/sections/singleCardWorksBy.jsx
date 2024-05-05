@@ -1,10 +1,13 @@
 import { Card, Image, Text, Badge, Button } from "@mantine/core";
+import { useRouter } from "next/navigation";
 
-export function SingleCardWorksBy({ title, text, src, linkProps, more, key }) {
+export function SingleCardWorksBy({ title, text, src, linkProps, key }) {
 	// const linkProps = {
 	// 	href: "https://mantine.dev",
 	// 	target: "_blank",
 	// 	rel: "noopener noreferrer",
+
+	const router = useRouter();
 	// };
 
 	return (
@@ -20,8 +23,8 @@ export function SingleCardWorksBy({ title, text, src, linkProps, more, key }) {
 			</Card.Section>
 
 			<Text
-				className=' text-blue-400 font-semibold leading-6 hover:underline mt-1'
-				component='a'
+				className=' text-blue-400 font-semibold leading-6 hover:underline mt-1 hover:cursor-pointer'
+				onClick={() => router.push(`/single/${title}`)}
 				lineClamp={1}
 				{...linkProps}>
 				{title}
@@ -31,7 +34,7 @@ export function SingleCardWorksBy({ title, text, src, linkProps, more, key }) {
 				{text}
 			</Text>
 
-			<Button component='a' href={more} variant='outline' className='mt-2'>
+			<Button variant='outline' className='mt-2'>
 				more
 			</Button>
 		</Card>

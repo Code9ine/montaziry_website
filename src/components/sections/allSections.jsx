@@ -13,21 +13,15 @@ import { SearchInput } from "../searchInput";
 const AllSections = () => {
 	return (
 		<Grid>
-			<Grid.Col
-				span={{ base: 12, md: 6, lg: 4 }}
-				className='border-r mt-4 pt-0'>
+			<Grid.Col span={{ base: 12, md: 6 }} className='border-r mt-4 pt-0'>
 				<WorksBy />
 			</Grid.Col>
-			<Grid.Col span={{ base: 12, md: 6, lg: 4 }} className='mt-4 pt-0'>
+			<Grid.Col span={{ base: 12, md: 6 }} className='mt-4 pt-0'>
 				<InterViewsSection />
 				<NewsSection />
 				<VideosSection />
 				<WorkCitiesSection />
 				<WorksOnSection />
-			</Grid.Col>
-			<Grid.Col span={{ base: 12, md: 6, lg: 4 }} className='pt-0'>
-				<SearchInput />
-				<RecentPostSections />
 			</Grid.Col>
 		</Grid>
 	);

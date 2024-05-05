@@ -4,7 +4,9 @@ import "@mantine/core/styles.css";
 import "@/styles/globals.css";
 import {
 	ColorSchemeScript,
+	Container,
 	DirectionProvider,
+	Grid,
 	MantineProvider,
 	useDirection,
 } from "@mantine/core";
@@ -14,6 +16,9 @@ import { HeaderSimple } from "@/components/Navbar";
 import { I18nextProvider } from "react-i18next";
 import i18n from "../locals/i18n.js";
 import { LanguageProvider } from "@/components/LanguageToggle.jsx";
+import HomeCategory from "@/components/homeHeader/HomeCategory.jsx";
+import { SearchInput } from "@/components/searchInput.jsx";
+import RecentPostSections from "@/components/sections/recentPost/recentPostSections.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +40,19 @@ const RootLayout = ({ children }) => {
 						<MantineProvider theme={mantineTheme}>
 							<DirectionProvider>
 								<HeaderSimple />
-								{children}
+								<Container size={"lg"} className='bg-white'>
+									<Grid className='pt-5 '>
+										<Grid.Col span={{ base: 12, md: 6, lg: 8 }}>
+											{children}
+										</Grid.Col>
+										<Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
+											<HomeCategory />
+											<SearchInput />
+											<RecentPostSections />
+										</Grid.Col>
+									</Grid>
+								</Container>
+
 								<ProgressProvider />
 							</DirectionProvider>
 						</MantineProvider>

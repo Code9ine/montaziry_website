@@ -1,7 +1,10 @@
 import React from "react";
 import { SingleCardWorksBy } from "./singleCardWorksBy";
+import { Text } from "@mantine/core";
+import { useRouter } from "next/navigation";
 
 const WorksBy = () => {
+	const router = useRouter();
 	const news = [
 		{
 			id: 1,
@@ -67,11 +70,11 @@ const WorksBy = () => {
 
 	return (
 		<div>
-			<a
-				href='/'
-				className='font-semibold uppercase text-sm  inline-block hover:underline'>
+			<Text
+				onClick={() => router.push(`/category/${4}`)}
+				className='font-semibold uppercase text-sm  inline-block hover:underline hover:cursor-pointer'>
 				Works by Dr.Montaziry
-			</a>
+			</Text>
 			{news.map((item, i) => (
 				<SingleCardWorksBy
 					key={i}
@@ -79,7 +82,6 @@ const WorksBy = () => {
 					text={item.text}
 					linkProps={item.linksProps}
 					src={item.src}
-					more={item.more}
 				/>
 			))}
 		</div>
