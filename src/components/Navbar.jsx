@@ -58,7 +58,7 @@ export function HeaderSimple() {
 			<Container size={"lg"} className={classes.container}>
 				<div className='top-landing'>
 					<AspectRatio ratio={1080 / 350}>
-						<Image src={"/images/top-bg.jpg"} alt={""} fill={true} />
+						<Image src={"/images/top-bg.jpg"} alt={"image"} fill={true} />
 					</AspectRatio>
 				</div>
 				<header className={classes.header}>
