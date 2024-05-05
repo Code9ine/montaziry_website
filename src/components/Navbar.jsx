@@ -12,6 +12,7 @@ import {
 	ScrollArea,
 	Divider,
 	rem,
+	Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
@@ -19,14 +20,16 @@ import classes from "../styles/HeaderMegaMenu.module.css";
 import Image from "next/image";
 import { useLanguage } from "./LanguageToggle";
 import LangIcon from "@/icons/lang";
+import { useRouter } from "next/navigation";
 
 const links = [
-	{ link: "/about", label: "Home" },
-	{ link: "/learn", label: "Book Collections" },
-	{ link: "/community", label: "CDs Collections" },
-	{ link: "/community", label: "Audios Collections" },
-	{ link: "/pricing", label: "About" },
-	{ link: "/pricing", label: "Contact Us" },
+	{ link: "/", label: "Home" },
+	{ link: "/biography", label: "Biography" },
+	{ link: "/books", label: "Books Collections" },
+	{ link: "/CDs", label: "CDs Collections" },
+	{ link: "/audios", label: "Audios Collections" },
+
+	{ link: "/contact", label: "Contact Us" },
 ];
 
 export function HeaderSimple() {
@@ -34,19 +37,19 @@ export function HeaderSimple() {
 	const [active, setActive] = useState(links[0].link);
 	const { toggleLanguage } = useLanguage();
 	const { toggleDirection, dir } = useDirection();
+	const router = useRouter();
 
 	const items = links.map((link, i) => (
-		<a
+		<Text
 			key={i}
-			href={link.link}
 			className={classes.link}
 			data-active={active === link.link || undefined}
-			onClick={(event) => {
-				event.preventDefault();
+			onClick={() => {
+				router.push(link.link);
 				setActive(link.link);
 			}}>
 			{link.label}
-		</a>
+		</Text>
 	));
 
 	return (
