@@ -8,13 +8,11 @@ export function useLanguage() {
 }
 
 export function LanguageProvider({ children }) {
-	const { i18n } = useTranslation();
+	const { i18n, lng } = useTranslation();
 
 	// Conditionally access localStorage based on window object
-	const lang =
-		typeof window !== "undefined" && localStorage.getItem("language")
-			? localStorage.getItem("language")
-			: "en";
+	const lang = localStorage.getItem("language") ?? "en";
+	
 	const [currentLanguage, setCurrentLanguage] = useState(lang);
 
 	const toggleLanguage = () => {
@@ -24,14 +22,14 @@ export function LanguageProvider({ children }) {
 		localStorage.setItem("language", newLanguage);
 	};
 
-	useEffect(() => {
-		// Check if window object and localStorage are available before using
-		if (typeof window !== "undefined" && localStorage.getItem("language")) {
-			const storedLanguage = localStorage.getItem("language");
-			setCurrentLanguage(storedLanguage);
-			i18n.changeLanguage(storedLanguage);
-		}
-	}, [i18n]);
+	// useEffect(() => {
+	// 	// Check if window object and localStorage are available before using
+	// 	if (typeof window !== "undefined" && localStorage.getItem("language")) {
+	// 		const storedLanguage = localStorage.getItem("language");
+	// 		setCurrentLanguage(storedLanguage);
+	// 		i18n.changeLanguage(storedLanguage);
+	// 	}
+	// }, [i18n]);
 
 	return (
 		<LanguageContext.Provider value={{ currentLanguage, toggleLanguage }}>

@@ -15,12 +15,11 @@ import {
 	Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-
 import classes from "../styles/HeaderMegaMenu.module.css";
 import Image from "next/image";
-import { useLanguage } from "./LanguageToggle";
 import LangIcon from "@/icons/lang";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const links = [
 	{ link: "/", label: "Home" },
@@ -28,16 +27,17 @@ const links = [
 	{ link: "/books", label: "Books Collections" },
 	{ link: "/CDs", label: "CDs Collections" },
 	{ link: "/audios", label: "Audios Collections" },
-
 	{ link: "/contact", label: "Contact Us" },
 ];
 
 export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
 	const [active, setActive] = useState(links[0].link);
-	const { toggleLanguage, currentLanguage } = useLanguage();
-	const { setDirection, dir } = useDirection();
+	const { setDirection } = useDirection();
 	const router = useRouter();
+	const { i18n } = useTranslation();
+console.log(i18n);
+
 
 	const items = links.map((link, i) => (
 		<Text
@@ -69,11 +69,8 @@ export function HeaderSimple() {
 						<div
 							className='hover:cursor-pointer hover:bg-gray-400 p-2 transition-all duration-150 rounded-full'
 							onClick={() => {
-								toggleLanguage();
-								console.log(currentLanguage == "en" ? "ltr" : "rtl");
-								console.log(currentLanguage == "en" );
-								
-								setDirection(currentLanguage == "en" ? "ltr" : "rtl");
+								i18n.changeLanguage(i18n.language === "en" ? "fa" : "en");
+								setDirection(i18n.language === "fa" ? "rtl" : "ltr");
 							}}>
 							<LangIcon color='red' width={20} height={20} />
 						</div>
