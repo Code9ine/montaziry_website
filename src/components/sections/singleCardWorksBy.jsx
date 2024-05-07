@@ -17,7 +17,7 @@ export function SingleCardWorksBy({ title, text, src, linkProps }) {
 			className='relative hover:bg-gray-100 my-2'>
 			<Card.Section>
 				<a {...linkProps}>
-					<Image src={src} height={180} />
+					<Image src={src} height={180} alt="image"/>
 				</a>
 			</Card.Section>
 

@@ -10,6 +10,7 @@ const SingleCardCustom = ({ title, text, more, src }) => {
 						// src='/images/profile.jpeg'
 						h={100}
 						w='100%'
+						alt="image"
 					/>
 				</Grid.Col>
 				<Grid.Col span={8}>
