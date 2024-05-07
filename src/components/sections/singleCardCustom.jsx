@@ -1,8 +1,8 @@
 import { Card, Image, Avatar, Text, Group, Grid } from "@mantine/core";
 
-const SingleCardCustom = ({ title, text, more, src, key }) => {
+const SingleCardCustom = ({ title, text, more, src }) => {
 	return (
-		<Card withBorder radius='md' className='my-2' p={0} key={key}>
+		<Card withBorder radius='md' className='my-2' p={0}>
 			<Grid>
 				<Grid.Col span={4} className='px-0'>
 					<Image

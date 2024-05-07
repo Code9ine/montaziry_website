@@ -15,7 +15,7 @@ import { mantineTheme } from "@/styles/Theme";
 import { HeaderSimple } from "@/components/Navbar";
 import { I18nextProvider } from "react-i18next";
 import i18n from "../locals/i18n.js";
-import { LanguageProvider } from "@/components/LanguageToggle.jsx";
+import { LanguageProvider, useLanguage } from "@/components/LanguageToggle.jsx";
 import HomeCategory from "@/components/homeHeader/HomeCategory.jsx";
 import { SearchInput } from "@/components/searchInput.jsx";
 import RecentPostSections from "@/components/sections/recentPost/recentPostSections.jsx";
@@ -28,6 +28,8 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 const RootLayout = ({ children }) => {
+
+	
 	return (
 		<html lang='en'>
 			<head>
@@ -38,7 +40,7 @@ const RootLayout = ({ children }) => {
 				<I18nextProvider i18n={i18n}>
 					<LanguageProvider>
 						<MantineProvider theme={mantineTheme}>
-							<DirectionProvider>
+							<DirectionProvider initialDirection={"rtl"} >
 								<HeaderSimple />
 								<Container size={"lg"} className='bg-white'>
 									<Grid className='pt-5 '>

@@ -1,7 +1,7 @@
 import { Card, Image, Text, Badge, Button } from "@mantine/core";
 import { useRouter } from "next/navigation";
 
-export function SingleCardWorksBy({ title, text, src, linkProps, key }) {
+export function SingleCardWorksBy({ title, text, src, linkProps }) {
 	// const linkProps = {
 	// 	href: "https://mantine.dev",
 	// 	target: "_blank",
@@ -14,8 +14,7 @@ export function SingleCardWorksBy({ title, text, src, linkProps, key }) {
 		<Card
 			withBorder
 			radius='md'
-			className='relative hover:bg-gray-100 my-2'
-			key={key}>
+			className='relative hover:bg-gray-100 my-2'>
 			<Card.Section>
 				<a {...linkProps}>
 					<Image src={src} height={180} />

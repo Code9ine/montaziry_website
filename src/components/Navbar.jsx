@@ -35,8 +35,8 @@ const links = [
 export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
 	const [active, setActive] = useState(links[0].link);
-	const { toggleLanguage } = useLanguage();
-	const { toggleDirection, dir } = useDirection();
+	const { toggleLanguage, currentLanguage } = useLanguage();
+	const { setDirection, dir } = useDirection();
 	const router = useRouter();
 
 	const items = links.map((link, i) => (
@@ -70,7 +70,10 @@ export function HeaderSimple() {
 							className='hover:cursor-pointer hover:bg-gray-400 p-2 transition-all duration-150 rounded-full'
 							onClick={() => {
 								toggleLanguage();
-								toggleDirection();
+								console.log(currentLanguage == "en" ? "ltr" : "rtl");
+								console.log(currentLanguage == "en" );
+								
+								setDirection(currentLanguage == "en" ? "ltr" : "rtl");
 							}}>
 							<LangIcon color='red' width={20} height={20} />
 						</div>

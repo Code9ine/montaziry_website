@@ -72,17 +72,19 @@ const WorksBy = () => {
 		<div>
 			<Text
 				onClick={() => router.push(`/category/${4}`)}
-				className='font-semibold uppercase text-sm  inline-block hover:underline hover:cursor-pointer'>
+				className="font-semibold uppercase text-sm  inline-block hover:underline hover:cursor-pointer"
+			>
 				Works by Dr.Montaziry
 			</Text>
 			{news.map((item, i) => (
-				<SingleCardWorksBy
-					key={i}
-					title={item.title}
-					text={item.text}
-					linkProps={item.linksProps}
-					src={item.src}
-				/>
+				<div key={i}>
+					<SingleCardWorksBy
+						title={item.title}
+						text={item.text}
+						linkProps={item.linksProps}
+						src={item.src}
+					/>
+				</div>
 			))}
 		</div>
 	);

@@ -28,20 +28,22 @@ const NewsSection = () => {
 		},
 	];
 	return (
-		<div className='mt-5'>
+		<div className="mt-5">
 			<a
-				href='/'
-				className='font-semibold uppercase text-sm  inline-block hover:underline'>
+				href="/"
+				className="font-semibold uppercase text-sm  inline-block hover:underline"
+			>
 				News
 			</a>
 			{news.map((item, i) => (
-				<SingleCardCustom
-					title={item.title}
-					src={item.src}
-					text={item.text}
-					more={item.more}
-					key={i}
-				/>
+				<div key={i}>
+					<SingleCardCustom
+						title={item.title}
+						src={item.src}
+						text={item.text}
+						more={item.more}
+					/>
+				</div>
 			))}
 		</div>
 	);
