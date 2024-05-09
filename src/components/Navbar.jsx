@@ -36,8 +36,7 @@ export function HeaderSimple() {
 	const { setDirection } = useDirection();
 	const router = useRouter();
 	const { i18n } = useTranslation();
-console.log(i18n);
-
+	console.log(i18n);
 
 	const items = links.map((link, i) => (
 		<Text
@@ -67,12 +66,12 @@ console.log(i18n);
 							{items}
 						</Group>
 						<div
-							className='hover:cursor-pointer hover:bg-gray-400 p-2 transition-all duration-150 rounded-full'
+							className='hover:cursor-pointer hover:bg-gray-100 p-2 transition-all duration-150 rounded-full text-blue-400'
 							onClick={() => {
 								i18n.changeLanguage(i18n.language === "en" ? "fa" : "en");
 								setDirection(i18n.language === "fa" ? "rtl" : "ltr");
 							}}>
-							<LangIcon color='red' width={20} height={20} />
+							<LangIcon width={22} height={22} />
 						</div>
 
 						<Burger

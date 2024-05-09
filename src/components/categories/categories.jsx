@@ -264,16 +264,16 @@ const Categories = ({ id }) => {
 									{item.title}
 								</Text>
 
-								<div className='rounded-sm bg-[#eef5e1] flex items-center w-fit  px-2 '>
+								<div className='rounded-sm bg-[#eef5e1] md:flex md:items-center md:w-fit  px-2 '>
 									<Text className='text-xs'>
 										By
 										<span className='text-blue-400 leading-6 hover:underline mt-2 hover:cursor-pointer'>
 											{" " + item.created_by}
 										</span>
 									</Text>
-									<span className='mx-2 text-xs'> • </span>
+									<span className='mx-2 text-xs hidden md:block'> • </span>
 									<div className='text-xs'>{item.created_at}</div>
-									<span className='mx-2 text-xs'> • </span>
+									<span className='mx-2 text-xs hidden md:block'> • </span>
 
 									<Text className='text-xs'>
 										Category:

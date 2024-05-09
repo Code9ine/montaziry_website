@@ -55,7 +55,12 @@ const RootLayout = ({ children }) => {
 									</Grid.Col>
 								</Grid>
 							</Container>
-
+							<Container size={"lg"}>
+								<div className='my-3'>
+									<span>&#169;</span> {new Date().getFullYear()} Ahmad Shekib
+									Montaziry :: احمد شکیب منتظری
+								</div>
+							</Container>
 							<ProgressProvider />
 						</DirectionProvider>
 					</MantineProvider>
