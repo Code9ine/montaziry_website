@@ -1,7 +1,12 @@
+import Layout from "@/components/layout";
 import React from "react";
 
 const page = () => {
-	return <div>Books</div>;
+	return (
+		<Layout>
+			<div>Books</div>
+		</Layout>
+	);
 };
 
 export default page;

@@ -72,8 +72,7 @@ const WorksBy = () => {
 		<div>
 			<Text
 				onClick={() => router.push(`/category/${4}`)}
-				className="font-semibold uppercase text-sm  inline-block hover:underline hover:cursor-pointer"
-			>
+				className='font-semibold uppercase text-sm  inline-block hover:underline hover:cursor-pointer'>
 				Works by Dr.Montaziry
 			</Text>
 			{news.map((item, i) => (

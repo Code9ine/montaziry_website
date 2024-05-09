@@ -1,9 +1,10 @@
 "use client";
+import Layout from "@/components/layout";
 import { List, Text } from "@mantine/core";
 
 const Biography = () => {
 	return (
-		<>
+		<Layout>
 			<div className='text-[26px] pb-2 border-b border-b-black border-solid'>
 				Biography
 			</div>
@@ -96,7 +97,7 @@ const Biography = () => {
 					</List.Item>
 				</List>
 			</div>
-		</>
+		</Layout>
 	);
 };
 

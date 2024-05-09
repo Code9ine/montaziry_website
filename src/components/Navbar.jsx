@@ -63,7 +63,11 @@ export function HeaderSimple() {
 						<div
 							className='hover:cursor-pointer hover:bg-gray-100 p-2 transition-all duration-150 rounded-full text-blue-400'
 							onClick={() => {
-								i18n.changeLanguage(i18n.language === "en" ? "fa" : "en");
+								if (i18n.language === "en") {
+									router.push("/fa");
+								} else {
+									router.push("/en");
+								}
 							}}>
 							<LangIcon width={22} height={22} />
 						</div>

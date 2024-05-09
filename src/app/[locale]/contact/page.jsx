@@ -1,7 +1,12 @@
+import Layout from "@/components/layout";
 import React from "react";
 
 const page = () => {
-	return <div>contact</div>;
+	return (
+		<Layout>
+			<div>contact</div>
+		</Layout>
+	);
 };
 
 export default page;

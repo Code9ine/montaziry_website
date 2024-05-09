@@ -1,7 +1,12 @@
+import Layout from "@/components/layout";
 import React from "react";
 
 const page = () => {
-	return <div>audios</div>;
+	return (
+		<Layout>
+			<div>audios</div>
+		</Layout>
+	);
 };
 
 export default page;
