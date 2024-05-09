@@ -5,10 +5,7 @@ import {
 	Group,
 	Burger,
 	AspectRatio,
-	Button,
-	useDirection,
 	Drawer,
-	Collapse,
 	ScrollArea,
 	Divider,
 	rem,
@@ -19,6 +16,7 @@ import classes from "../styles/HeaderMegaMenu.module.css";
 import Image from "next/image";
 import LangIcon from "@/icons/lang";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const links = [
 	{ link: "/", label: "home" },
@@ -33,6 +31,7 @@ export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
 	const [active, setActive] = useState(links[0].link);
 	const router = useRouter();
+	const { t, i18n } = useTranslation();
 
 	const items = links.map((link, i) => (
 		<Text
@@ -44,7 +43,7 @@ export function HeaderSimple() {
 				setActive(link.link);
 				close();
 			}}>
-			{link.label}
+			{t(link.label)}
 		</Text>
 	));
 
@@ -63,7 +62,9 @@ export function HeaderSimple() {
 						</Group>
 						<div
 							className='hover:cursor-pointer hover:bg-gray-100 p-2 transition-all duration-150 rounded-full text-blue-400'
-							onClick={() => {}}>
+							onClick={() => {
+								i18n.changeLanguage(i18n.language === "en" ? "fa" : "en");
+							}}>
 							<LangIcon width={22} height={22} />
 						</div>
 
