@@ -1,4 +1,4 @@
-import { createTheme } from "@mantine/core";
+import { createTheme, rem } from "@mantine/core";
 
 export const mantineTheme = () => {
 	return createTheme({

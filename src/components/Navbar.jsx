@@ -19,7 +19,6 @@ import classes from "../styles/HeaderMegaMenu.module.css";
 import Image from "next/image";
 import LangIcon from "@/icons/lang";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
 
 const links = [
 	{ link: "/", label: "home" },
@@ -33,9 +32,7 @@ const links = [
 export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
 	const [active, setActive] = useState(links[0].link);
-	const { setDirection } = useDirection();
 	const router = useRouter();
-	const { i18n, t } = useTranslation();
 
 	const items = links.map((link, i) => (
 		<Text
@@ -47,7 +44,7 @@ export function HeaderSimple() {
 				setActive(link.link);
 				close();
 			}}>
-			{t(link.label)}
+			{link.label}
 		</Text>
 	));
 
@@ -66,10 +63,7 @@ export function HeaderSimple() {
 						</Group>
 						<div
 							className='hover:cursor-pointer hover:bg-gray-100 p-2 transition-all duration-150 rounded-full text-blue-400'
-							onClick={() => {
-								i18n.changeLanguage(i18n.language === "en" ? "fa" : "en");
-								setDirection(i18n.language === "fa" ? "rtl" : "ltr");
-							}}>
+							onClick={() => {}}>
 							<LangIcon width={22} height={22} />
 						</div>
 
