@@ -1,3 +1,4 @@
+"use client";
 import Layout from "@/components/layout";
 import SinglePage from "@/components/singlePages/singlePage";
 import { Container } from "@mantine/core";

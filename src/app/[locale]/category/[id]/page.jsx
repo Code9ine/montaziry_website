@@ -1,3 +1,4 @@
+"use client";
 import Categories from "@/components/categories/categories";
 import Layout from "@/components/layout";
 import { Container } from "@mantine/core";
