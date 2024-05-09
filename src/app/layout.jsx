@@ -19,6 +19,7 @@ import HomeCategory from "@/components/homeHeader/HomeCategory.jsx";
 import { SearchInput } from "@/components/searchInput.jsx";
 import RecentPostSections from "@/components/sections/recentPost/recentPostSections.jsx";
 import { useState } from "react";
+import SocialLinks from "@/components/sections/SocialLinks/SocialLinks.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,25 +38,27 @@ const RootLayout = ({ children }) => {
 			<body className={inter.className}>
 				<I18nextProvider i18n={i18n}>
 					{/* <LanguageProvider> */}
-						<MantineProvider theme={mantineTheme}>
-							<DirectionProvider initialDirection={i18n.language === 'fa' ? 'rtl' : 'ltr'} >
-								<HeaderSimple />
-								<Container size={"lg"} className='bg-white'>
-									<Grid className='pt-5 '>
-										<Grid.Col span={{ base: 12, md: 6, lg: 8 }}>
-											{children}
-										</Grid.Col>
-										<Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
-											<HomeCategory />
-											<SearchInput />
-											<RecentPostSections />
-										</Grid.Col>
-									</Grid>
-								</Container>
+					<MantineProvider theme={mantineTheme}>
+						<DirectionProvider
+							initialDirection={i18n.language === "fa" ? "rtl" : "ltr"}>
+							<HeaderSimple />
+							<Container size={"lg"} className='bg-white'>
+								<Grid className='pt-5 '>
+									<Grid.Col span={{ base: 12, md: 6, lg: 8 }}>
+										{children}
+									</Grid.Col>
+									<Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
+										<HomeCategory />
+										<SearchInput />
+										<RecentPostSections />
+										<SocialLinks />
+									</Grid.Col>
+								</Grid>
+							</Container>
 
-								<ProgressProvider />
-							</DirectionProvider>
-						</MantineProvider>
+							<ProgressProvider />
+						</DirectionProvider>
+					</MantineProvider>
 					{/* </LanguageProvider> */}
 				</I18nextProvider>
 			</body>
