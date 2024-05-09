@@ -22,12 +22,12 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 
 const links = [
-	{ link: "/", label: "Home" },
-	{ link: "/biography", label: "Biography" },
-	{ link: "/books", label: "Books Collections" },
-	{ link: "/CDs", label: "CDs Collections" },
-	{ link: "/audios", label: "Audios Collections" },
-	{ link: "/contact", label: "Contact Us" },
+	{ link: "/", label: "home" },
+	{ link: "/biography", label: "biography" },
+	{ link: "/books", label: "bibliography" },
+	{ link: "/CDs", label: "CDsCollections" },
+	{ link: "/audios", label: "audiosCollections" },
+	{ link: "/contact", label: "contactUs" },
 ];
 
 export function HeaderSimple() {
@@ -35,8 +35,7 @@ export function HeaderSimple() {
 	const [active, setActive] = useState(links[0].link);
 	const { setDirection } = useDirection();
 	const router = useRouter();
-	const { i18n } = useTranslation();
-	console.log(i18n);
+	const { i18n, t } = useTranslation();
 
 	const items = links.map((link, i) => (
 		<Text
@@ -48,7 +47,7 @@ export function HeaderSimple() {
 				setActive(link.link);
 				close();
 			}}>
-			{link.label}
+			{t(link.label)}
 		</Text>
 	));
 
