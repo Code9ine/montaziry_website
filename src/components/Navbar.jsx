@@ -15,7 +15,7 @@ import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/HeaderMegaMenu.module.css";
 import Image from "next/image";
 import LangIcon from "@/icons/lang";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 
 const links = [
@@ -29,7 +29,8 @@ const links = [
 
 export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
-	const [active, setActive] = useState(links[0].link);
+	const pathname = usePathname();
+	const [active, setActive] = useState(pathname);
 	const router = useRouter();
 	const { t, i18n } = useTranslation();
 
