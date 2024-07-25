@@ -15,8 +15,9 @@ import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/HeaderMegaMenu.module.css";
 import Image from "next/image";
 import LangIcon from "@/icons/lang";
-import { usePathname, useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
+import { useRouter } from "../navigation";
+import { Link } from "@/navigation";
+import { useLocale } from "next-intl";
 
 const links = [
 	{ link: "/", label: "home" },
@@ -29,23 +30,24 @@ const links = [
 
 export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
-	const pathname = usePathname();
-	const [active, setActive] = useState(pathname);
 	const router = useRouter();
-	const { t, i18n } = useTranslation();
+
+	const locale = useLocale();
 
 	const items = links.map((link, i) => (
-		<Text
+		<Link
 			key={i}
+			href={link.link}
 			className={classes.link}
-			data-active={active === link.link || undefined}
-			onClick={() => {
-				router.push(link.link);
-				setActive(link.link);
-				close();
-			}}>
-			{t(link.label)}
-		</Text>
+			// data-active={active === link.link || undefined}
+			// onClick={() => {
+			// 	router.push(link.link);
+			// 	setActive(link.link);
+			// 	close();
+			// }}
+		>
+			{link.label}
+		</Link>
 	));
 
 	return (
@@ -63,13 +65,9 @@ export function HeaderSimple() {
 						</Group>
 						<div
 							className='hover:cursor-pointer hover:bg-gray-100 p-2 transition-all duration-150 rounded-full text-blue-400'
-							onClick={() => {
-								if (i18n.language === "en") {
-									router.push("/fa");
-								} else {
-									router.push("/en");
-								}
-							}}>
+							onClick={() =>
+								router.push("/", { locale: locale == "fa" ? "en" : "fa" })
+							}>
 							<LangIcon width={22} height={22} />
 						</div>
 

@@ -1,9 +1,8 @@
 "use client";
+import { Link } from "@/navigation";
 import { Text } from "@mantine/core";
-import { useRouter } from "next/navigation";
 
 const Categories = ({ id }) => {
-	const router = useRouter();
 	const posts = [
 		{
 			id: 1,
@@ -258,11 +257,11 @@ const Categories = ({ id }) => {
 							<div
 								key={index}
 								className=' py-6 border-b border-b-black border-solid'>
-								<Text
-									onClick={() => router.push(`/single/${1}`)}
+								<Link
+									href={`/single/${1}`}
 									className='text-blue-400 inline-block text-2xl leading-6 hover:underline mt-2 hover:cursor-pointer'>
 									{item.title}
-								</Text>
+								</Link>
 
 								<div className='rounded-sm bg-[#eef5e1] md:flex md:items-center md:w-fit  px-2 '>
 									<Text className='text-xs'>

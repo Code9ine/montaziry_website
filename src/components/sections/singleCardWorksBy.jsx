@@ -1,33 +1,24 @@
+import { Link } from "@/navigation";
 import { Card, Image, Text, Badge, Button } from "@mantine/core";
 import { useRouter } from "next/navigation";
 
-export function SingleCardWorksBy({ title, text, src, linkProps }) {
-	// const linkProps = {
-	// 	href: "https://mantine.dev",
-	// 	target: "_blank",
-	// 	rel: "noopener noreferrer",
-
-	const router = useRouter();
-	// };
+export function SingleCardWorksBy({ item }) {
+	const { title, text, src, id } = item;
 
 	return (
-		<Card
-			withBorder
-			radius='md'
-			className='relative hover:bg-gray-100 my-2'>
+		<Card withBorder radius='md' className='relative hover:bg-gray-100 my-2'>
 			<Card.Section>
-				<a {...linkProps}>
-					<Image src={src} height={180} alt="image"/>
-				</a>
+				<Link href={`/single/${id}`}>
+					<Image src={src} height={180} alt='image' />
+				</Link>
 			</Card.Section>
 
-			<Text
+			<Link
 				className=' text-blue-400 font-semibold leading-6 hover:underline mt-1 hover:cursor-pointer'
-				onClick={() => router.push(`/single/${title}`)}
-				lineClamp={1}
-				{...linkProps}>
+				href={`/single/${id}`}
+				lineClamp={1}>
 				{title}
-			</Text>
+			</Link>
 
 			<Text fz='sm' c='dimmed' lineClamp={4}>
 				{text}

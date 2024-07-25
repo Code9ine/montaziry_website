@@ -29,21 +29,15 @@ const WorksOnSection = () => {
 		},
 	];
 	return (
-		<div className="mt-5">
+		<div className='mt-5'>
 			<a
-				href="/"
-				className="font-semibold uppercase text-sm  inline-block hover:underline"
-			>
+				href='/'
+				className='font-semibold uppercase text-sm  inline-block hover:underline'>
 				Works On Dr.Montaziry
 			</a>
 			{workOn.map((item, i) => (
 				<div key={i}>
-					<SingleCardCustom
-						title={item.title}
-						src={item.src}
-						text={item.text}
-						more={item.more}
-					/>
+					<SingleCardCustom item={item} />
 				</div>
 			))}
 		</div>

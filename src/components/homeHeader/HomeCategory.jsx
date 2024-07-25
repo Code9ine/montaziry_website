@@ -3,6 +3,7 @@ import React from "react";
 import LeftMainTitle from "../leftMainTitle";
 import { useRouter } from "next/navigation";
 import LocalizedLink from "../LocalizedLink";
+import { Link } from "@/navigation";
 
 const HomeCategory = () => {
 	const router = useRouter();
@@ -22,11 +23,11 @@ const HomeCategory = () => {
 			<LeftMainTitle title='Categories' />
 			<div className='my-4'>
 				{categories.map((item, i) => (
-					<LocalizedLink key={i} href={`/category/${item.id}`}>
+					<Link key={i} href={`/category/${item.id}`}>
 						<div className='text-sm bg-gray-300 px-2 border-l-[6px] border-slate-800 my-[1px] hover:cursor-pointer hover:bg-blue-400 hover:text-white transition-all duration-100'>
 							{item.title}
 						</div>
-					</LocalizedLink>
+					</Link>
 				))}
 			</div>
 		</>

@@ -1,4 +1,5 @@
 import LeftMainTitle from "@/components/leftMainTitle";
+import { Link } from "@/navigation";
 import { List } from "@mantine/core";
 
 const RecentPostSections = () => {
@@ -8,32 +9,32 @@ const RecentPostSections = () => {
 			<div className='mx-4 mt-5'>
 				<List size='sm' className='list-disc'>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Clone or download repository from GitHub
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Install dependencies with yarn
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
 							maiores.
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
@@ -41,67 +42,67 @@ const RecentPostSections = () => {
 							pariatur commodi aspernatur modi. Architecto, nemo obcaecati
 							veniam cupiditate dolore voluptatem minus provident ea hic amet
 							doloribus consectetur at? Cumque, voluptates!
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
 							optio odio aut? Officia, cumque tempora!
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Lorem ipsum dolor sit amet.
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam
 							ipsam doloribus voluptatem autem alias harum asperiores
 							repellendus nulla. Tenetur, similique?
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
 							accusamus.
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Clone or download repository from GitHub
-						</a>
+						</Link>
 					</List.Item>
 					<List.Item className='my-2'>
-						<a
+						<Link
 							href='/'
 							target='_blank'
 							className='text-blue-400  whitespace-break-spaces leading-4 hover:underline'>
 							Clone or download repository from GitHub
-						</a>
+						</Link>
 					</List.Item>
 				</List>
 			</div>

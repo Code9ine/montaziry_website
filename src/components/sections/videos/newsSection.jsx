@@ -28,21 +28,15 @@ const VideosSection = () => {
 		},
 	];
 	return (
-		<div className="mt-5">
+		<div className='mt-5'>
 			<a
-				href="/"
-				className="font-semibold uppercase text-sm  inline-block hover:underline"
-			>
+				href='/'
+				className='font-semibold uppercase text-sm  inline-block hover:underline'>
 				Videos
 			</a>
 			{news.map((item, i) => (
 				<div key={i}>
-					<SingleCardCustom
-						title={item.title}
-						src={item.src}
-						text={item.text}
-						more={item.more}
-					/>
+					<SingleCardCustom item={item} />
 				</div>
 			))}
 		</div>

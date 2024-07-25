@@ -7,12 +7,14 @@ import {
 	MantineProvider,
 } from "@mantine/core";
 import ProgressProvider from "@/providers/progress.provider";
-import initTranslations from "@/i18n";
-import TranslationsProvider from "@/providers/TranslationsProvider";
+import { NextIntlClientProvider } from "next-intl";
 const inter = Inter({ subsets: ["latin"] });
+import { getMessages } from "next-intl/server";
 
 const RootLayout = async ({ children, params: { locale } }) => {
-	const { resources } = await initTranslations(locale);
+	const messages = await getMessages();
+
+	console.log("locale", locale);
 
 	return (
 		<html lang={locale} dir={locale == "en" ? "ltr" : "rtl"}>
@@ -22,10 +24,7 @@ const RootLayout = async ({ children, params: { locale } }) => {
 
 			<body className={inter.className}>
 				{/* <LanguageProvider> */}
-				<TranslationsProvider
-					namespaces={["default"]}
-					locale={locale}
-					resources={resources}>
+				<NextIntlClientProvider messages={messages}>
 					<MantineProvider>
 						<DirectionProvider
 							initialDirection={locale == "en" ? "ltr" : "rtl"}>
@@ -33,7 +32,7 @@ const RootLayout = async ({ children, params: { locale } }) => {
 							<ProgressProvider />
 						</DirectionProvider>
 					</MantineProvider>
-				</TranslationsProvider>
+				</NextIntlClientProvider>
 				{/* </LanguageProvider> */}
 			</body>
 		</html>

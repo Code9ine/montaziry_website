@@ -12,11 +12,6 @@ const WorksBy = () => {
 			more: "/",
 			title: "You Have Turned Iran into a Grim Land",
 			text: " letter from Soroush to Khamenei   Mohammad Nourizad, the brave and free-minded artist, who has opened the way to critical admonitions and admonitory criticism, has invited writers and thinkers to join him; to perform their duty of enjoining virtue and opposing vice; and to do their share in reinforcing the criticism in the hope",
-			linksProps: {
-				href: "/",
-				target: "_blank",
-				rel: "noopener noreferrer",
-			},
 		},
 		{
 			id: 2,
@@ -24,11 +19,6 @@ const WorksBy = () => {
 			src: "https://i.imgur.com/Cij5vdL.png",
 			more: "/",
 			text: " letter from Soroush to Khamenei   Mohammad Nourizad, the brave and free-minded artist, who has opened the way to critical admonitions and admonitory criticism, has invited writers and thinkers to join him; to perform their duty of enjoining virtue and opposing vice; and to do their share in reinforcing the criticism in the hope",
-			linksProps: {
-				href: "/",
-				target: "_blank",
-				rel: "noopener noreferrer",
-			},
 		},
 		{
 			id: 3,
@@ -36,11 +26,6 @@ const WorksBy = () => {
 			src: "https://i.imgur.com/Cij5vdL.png",
 			more: "/",
 			text: " letter from Soroush to Khamenei   Mohammad Nourizad, the brave and free-minded artist, who has opened the way to critical admonitions and admonitory criticism, has invited writers and thinkers to join him; to perform their duty of enjoining virtue and opposing vice; and to do their share in reinforcing the criticism in the hope",
-			linksProps: {
-				href: "/",
-				target: "_blank",
-				rel: "noopener noreferrer",
-			},
 		},
 		{
 			id: 4,
@@ -48,11 +33,6 @@ const WorksBy = () => {
 			src: "https://i.imgur.com/Cij5vdL.png",
 			more: "/",
 			text: " letter from Soroush to Khamenei   Mohammad Nourizad, the brave and free-minded artist, who has opened the way to critical admonitions and admonitory criticism, has invited writers and thinkers to join him; to perform their duty of enjoining virtue and opposing vice; and to do their share in reinforcing the criticism in the hope",
-			linksProps: {
-				href: "/",
-				target: "_blank",
-				rel: "noopener noreferrer",
-			},
 		},
 		{
 			id: 5,
@@ -60,11 +40,6 @@ const WorksBy = () => {
 			src: "https://i.imgur.com/Cij5vdL.png",
 			more: "/",
 			text: " letter from Soroush to Khamenei   Mohammad Nourizad, the brave and free-minded artist, who has opened the way to critical admonitions and admonitory criticism, has invited writers and thinkers to join him; to perform their duty of enjoining virtue and opposing vice; and to do their share in reinforcing the criticism in the hope",
-			linksProps: {
-				href: "/",
-				target: "_blank",
-				rel: "noopener noreferrer",
-			},
 		},
 	];
 
@@ -77,12 +52,7 @@ const WorksBy = () => {
 			</Text>
 			{news.map((item, i) => (
 				<div key={i}>
-					<SingleCardWorksBy
-						title={item.title}
-						text={item.text}
-						linkProps={item.linksProps}
-						src={item.src}
-					/>
+					<SingleCardWorksBy item={item} />
 				</div>
 			))}
 		</div>
