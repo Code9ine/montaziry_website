@@ -19,7 +19,7 @@ const SingleCardCustom = ({ item }) => {
 					<div>
 						<Link
 							className='text-blue-400 pr-1 font-semibold leading-4 hover:underline my-2 line-clamp-[1]'
-							href={`single/${id}`}
+							href={`/single/${id}`}
 							fw={700}>
 							{title}
 						</Link>

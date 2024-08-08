@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
 import LeftMainTitle from "../leftMainTitle";
-import { useRouter } from "next/navigation";
-import LocalizedLink from "../LocalizedLink";
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 const HomeCategory = () => {
-	const router = useRouter();
+	const t = useTranslations("generals");
 
 	const categories = [
 		{ id: 1, title: "Announcement" },
@@ -20,7 +19,7 @@ const HomeCategory = () => {
 	];
 	return (
 		<>
-			<LeftMainTitle title='Categories' />
+			<LeftMainTitle title={t("categories")} />
 			<div className='my-4'>
 				{categories.map((item, i) => (
 					<Link key={i} href={`/category/${item.id}`}>

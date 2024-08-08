@@ -1,8 +1,13 @@
 {
-	"home": "صفحه اصلی",
-	"biography": "زندگینامه",
-	"bibliography": "مجموعه کتاب ها",
-	"CDsCollections": "مجموعه سی دی ها",
-	"audiosCollections": "مجموعه نوار ها",
-	"contactUs": "تماس با ما"
+	"links": {
+		"home": "صفحه اصلی",
+		"biography": "زندگینامه",
+		"bibliography": "مجموعه کتاب ها",
+		"CDsCollections": "مجموعه سی دی ها",
+		"audiosCollections": "مجموعه نوار ها",
+		"contactUs": "تماس با ما"
+	},
+	"generals": {
+		"categories": "کتگوری ها"
+	}
 }

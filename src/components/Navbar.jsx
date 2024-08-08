@@ -17,7 +17,7 @@ import Image from "next/image";
 import LangIcon from "@/icons/lang";
 import { useRouter } from "../navigation";
 import { Link } from "@/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const links = [
 	{ link: "/", label: "home" },
@@ -31,6 +31,7 @@ const links = [
 export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
 	const router = useRouter();
+	const t = useTranslations("links");
 
 	const locale = useLocale();
 
@@ -46,7 +47,7 @@ export function HeaderSimple() {
 			// 	close();
 			// }}
 		>
-			{link.label}
+			{t(link.label)}
 		</Link>
 	));
 

@@ -1,8 +1,13 @@
 {
-	"home": "Home",
-	"biography": "Biography",
-	"bibliography": "Bibliography",
-	"CDsCollections": "CD Collections",
-	"audiosCollections": "Audio Collections",
-	"contactUs": "Contact Us"
+	"links": {
+		"home": "Home",
+		"biography": "Biography",
+		"bibliography": "Bibliography",
+		"CDsCollections": "CD Collections",
+		"audiosCollections": "Audio Collections",
+		"contactUs": "Contact Us"
+	},
+	"generals": {
+		"categories": "Categories"
+	}
 }
