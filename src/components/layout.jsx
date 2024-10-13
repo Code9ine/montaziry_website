@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 				</Grid>
 			</Container>
 			<Container size={"lg"}>
-				<div className='my-3'>
+				<div className='my-5'>
 					<span>&#169;</span> {new Date().getFullYear()} Ahmad Shekib Montaziry
 					:: احمد شکیب منتظری
 				</div>

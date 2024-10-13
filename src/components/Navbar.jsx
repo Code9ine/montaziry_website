@@ -9,7 +9,6 @@ import {
 	ScrollArea,
 	Divider,
 	rem,
-	Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/HeaderMegaMenu.module.css";
@@ -18,6 +17,7 @@ import LangIcon from "@/icons/lang";
 import { useRouter } from "../navigation";
 import { Link } from "@/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 const links = [
 	{ link: "/", label: "home" },
@@ -32,24 +32,25 @@ export function HeaderSimple() {
 	const [opened, { toggle, close }] = useDisclosure(false);
 	const router = useRouter();
 	const t = useTranslations("links");
-
+	const pathname = usePathname();
 	const locale = useLocale();
 
-	const items = links.map((link, i) => (
-		<Link
-			key={i}
-			href={link.link}
-			className={classes.link}
-			// data-active={active === link.link || undefined}
-			// onClick={() => {
-			// 	router.push(link.link);
-			// 	setActive(link.link);
-			// 	close();
-			// }}
-		>
-			{t(link.label)}
-		</Link>
-	));
+	const items = links.map((link, i) => {
+		const strippedPathname = pathname.replace(`/${locale}`, "") || "/";
+		return (
+			<Link
+				key={i}
+				href={link.link}
+				className={classes.link}
+				data-active={strippedPathname === link.link || undefined}
+				// onClick={() => {
+				// 	console.log(pathname, `/${locale}${link.link}`);
+				// }}
+			>
+				{t(link.label)}
+			</Link>
+		);
+	});
 
 	return (
 		<>
