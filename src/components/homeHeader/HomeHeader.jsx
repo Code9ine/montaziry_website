@@ -1,12 +1,28 @@
 "use client";
+import axiosInstance from "@/lib/axios";
 import { Link } from "@/navigation";
-import { Button, Grid, Image, Text } from "@mantine/core";
-import { useRouter } from "next/navigation";
+import { Button, Grid, Image } from "@mantine/core";
+import { useLocale } from "next-intl";
+import { useEffect } from "react";
 
 import React from "react";
 
 const HomeHeader = () => {
-	const router = useRouter();
+	const locale = useLocale();
+
+	const fetchPost = async () => {
+		const res = await axiosInstance.get(`/api/posts?locale=${locale}`, {
+			params: {
+				populate: "featured_image",
+			},
+		});
+		console.log(res);
+	};
+
+	useEffect(() => {
+		fetchPost();
+	}, []);
+
 	return (
 		<div className='mx-2 bg-gray-100 md:p-4 p-0'>
 			<Grid className='flex'>
