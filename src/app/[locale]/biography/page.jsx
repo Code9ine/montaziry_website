@@ -14,7 +14,6 @@ const Biography = () => {
 		const res = await axiosInstance.get(`/api/biographies?locale=${locale}`);
 		setData(res?.data?.data);
 	};
-	console.log(data);
 
 	useEffect(() => {
 		fetchData();

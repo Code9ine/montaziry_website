@@ -16,7 +16,6 @@ const HomeHeader = () => {
 				populate: "featured_image",
 			},
 		});
-		console.log(res);
 	};
 
 	useEffect(() => {

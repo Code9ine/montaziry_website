@@ -1,30 +1,35 @@
 "use client";
-import React from "react";
+import { useState, useEffect } from "react";
 import LeftMainTitle from "../leftMainTitle";
 import { Link } from "@/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import axiosInstance from "@/lib/axios";
 
 const HomeCategory = () => {
 	const t = useTranslations("generals");
+	const [categories, setCategories] = useState([]);
+	const locale = useLocale();
 
-	const categories = [
-		{ id: 1, title: "Announcement" },
-		{ id: 2, title: "Interviews" },
-		{ id: 3, title: "Lectures" },
-		{ id: 4, title: "News" },
-		{ id: 5, title: "Videos" },
-		{ id: 6, title: "Works by Dr.Montaziry" },
-		{ id: 7, title: "Works cities Dr.Montaziry" },
-		{ id: 7, title: "Works on Dr.Montaziry" },
-	];
+	const fetchData = async () => {
+		const res = await axiosInstance.get(`/api/categories?locale=${locale}`);
+		setCategories(res?.data?.data);
+	};
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
 	return (
 		<>
 			<LeftMainTitle title={t("categories")} />
 			<div className='my-4'>
-				{categories.map((item, i) => (
+				{categories?.map((item, i) => (
 					<Link key={i} href={`/category/${item.id}`}>
-						<div className='text-sm bg-gray-300 px-2 border-l-[6px] border-slate-800 my-[1px] hover:cursor-pointer hover:bg-blue-400 hover:text-white transition-all duration-100'>
-							{item.title}
+						<div
+							className={`text-sm bg-gray-300 px-2 ${
+								locale == "fa" ? "border-r-[6px]" : "border-l-[6px]"
+							}  border-slate-800 my-[1px] hover:cursor-pointer hover:bg-blue-400 hover:text-white transition-all duration-100`}>
+							{item?.attributes?.title}
 						</div>
 					</Link>
 				))}
