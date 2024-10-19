@@ -8,6 +8,8 @@
 		"contactUs": "Contact Us"
 	},
 	"generals": {
-		"categories": "Categories"
+		"categories": "Categories",
+		"archivesCategory": "Archives for the ‘ {category} ’ Category",
+		"category": "Category"
 	}
 }

@@ -8,6 +8,8 @@
 		"contactUs": "تماس با ما"
 	},
 	"generals": {
-		"categories": "کتگوری ها"
+		"categories": "کتگوری ها",
+		"archivesCategory": "بایگانی برای دسته ‘ {category} ’",
+		"category": "دسته"
 	}
 }

@@ -1,23 +1,25 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import LeftMainTitle from "../leftMainTitle";
 import { Link } from "@/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import axiosInstance from "@/lib/axios";
+import { CategoriesContext } from "@/contexts/CategoriesContext";
 
 const HomeCategory = () => {
 	const t = useTranslations("generals");
-	const [categories, setCategories] = useState([]);
+	// const [categories, setCategories] = useState([]);
+	const { categories, loading } = useContext(CategoriesContext);
 	const locale = useLocale();
 
-	const fetchData = async () => {
-		const res = await axiosInstance.get(`/api/categories?locale=${locale}`);
-		setCategories(res?.data?.data);
-	};
+	// const fetchData = async () => {
+	// 	const res = await axiosInstance.get(`/api/categories?locale=${locale}`);
+	// 	setCategories(res?.data?.data);
+	// };
 
-	useEffect(() => {
-		fetchData();
-	}, []);
+	// useEffect(() => {
+	// 	fetchData();
+	// }, []);
 
 	return (
 		<>

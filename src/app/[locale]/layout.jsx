@@ -10,6 +10,7 @@ import ProgressProvider from "@/providers/progress.provider";
 import { NextIntlClientProvider } from "next-intl";
 const inter = Inter({ subsets: ["latin"] });
 import { getMessages } from "next-intl/server";
+import { CategoriesProvider } from "@/contexts/CategoriesContext";
 
 const RootLayout = async ({ children, params: { locale } }) => {
 	const messages = await getMessages();
@@ -28,7 +29,9 @@ const RootLayout = async ({ children, params: { locale } }) => {
 					<MantineProvider>
 						<DirectionProvider
 							initialDirection={locale == "en" ? "ltr" : "rtl"}>
-							{children}
+							<CategoriesProvider locale={locale}>
+								{children}
+							</CategoriesProvider>
 							<ProgressProvider />
 						</DirectionProvider>
 					</MantineProvider>

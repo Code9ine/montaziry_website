@@ -1,14 +1,16 @@
 "use client";
 import axiosInstance from "@/lib/axios";
+import { formatString } from "@/lib/formatString";
 import { Link } from "@/navigation";
 import { Text } from "@mantine/core";
 import moment from "moment";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 const Categories = ({ id }) => {
-	console.log(id);
+	const t = useTranslations("generals");
 	const [posts, setPosts] = useState([]);
+	const [categoryTitle, setCategoryTitle] = useState({});
 	const [page, setPage] = useState(1);
 	const [perPage, setPerPage] = useState(10);
 	const locale = useLocale();
@@ -16,9 +18,23 @@ const Categories = ({ id }) => {
 	const fetchData = async () => {
 		try {
 			const res = await axiosInstance.get(
-				`/api/categories?locale=${locale}&filters[slug][$eq]=${id}&populate[posts][pagination][page]=${page}&populate[posts][pagination][pageSize]=${perPage}`,
+				`/api/posts?locale=${locale}&filters[category][slug][$eq]=${id}&populate[0]=author_id&pagination[page]=${page}&pagination[pageSize]=${perPage}
+`,
 			);
 			setPosts(res?.data?.data);
+		} catch (error) {
+			console.error(
+				"Error fetching category with posts:",
+				error.response?.data || error.message,
+			);
+		}
+	};
+	const fetchCategory = async () => {
+		try {
+			const res = await axiosInstance.get(
+				`/api/categories?locale=${locale}&filters[slug][$eq]=${id}`,
+			);
+			setCategoryTitle(res?.data?.data[0]);
 		} catch (error) {
 			console.error(
 				"Error fetching category with posts:",
@@ -29,7 +45,11 @@ const Categories = ({ id }) => {
 
 	useEffect(() => {
 		fetchData();
-	}, [id, page, perPage]); // Ensure you update data if any of these values change
+	}, [id, page, perPage]);
+	// Ensure you update data if any of these values change
+	useEffect(() => {
+		fetchCategory();
+	}, []); // Ensure you update data if any of these values change
 
 	// const posts = [
 	// 	{
@@ -276,36 +296,44 @@ const Categories = ({ id }) => {
 	return (
 		<div>
 			<div className='text-[26px]  border-b border-b-black border-solid'>
-				Archives for the ‘ {posts[0]?.attributes?.title} ’ Category
+				{/* Archives for the ‘ {formatString(id)} ’ Category */}
+				{t("archivesCategory", { category: categoryTitle?.attributes?.title })}
 			</div>
 			<div>
-				{posts[0]?.attributes?.posts?.data?.map((item, index) => (
+				{posts?.map((item, index) => (
 					<div
 						key={index}
 						className=' py-3 border-b border-b-black border-solid'>
 						<Link
-							href={`/single/${1}`}
+							href={`/single/${item?.attributes?.slug}`}
 							className='text-blue-400 inline-block text-2xl leading-6 hover:underline mt-2 hover:cursor-pointer'>
 							{item?.attributes?.title}
 						</Link>
 
 						<div className='rounded-sm bg-[#eef5e1] md:flex md:items-center md:w-fit  px-2 '>
-							<Text className='text-xs'>
-								By
-								<span className='text-blue-400 leading-6 hover:underline mt-2 hover:cursor-pointer'>
-									{" " + item?.attributes?.author}
-								</span>
-							</Text>
-							<span className='mx-2 text-xs hidden md:block'> • </span>
-							<div className='text-xs'>
-								{moment(item?.attributes?.createdAt).format("Do MMMM YYYY")}
-							</div>
-							<span className='mx-2 text-xs hidden md:block'> • </span>
+							{locale == "en" && (
+								<>
+									<Text className='text-xs'>
+										By
+										<span className='text-blue-400 leading-6 hover:underline mt-2 hover:cursor-pointer'>
+											{" " +
+												item?.attributes?.author_id?.data?.attributes?.name}
+										</span>
+									</Text>
+									<span className='mx-2 text-xs hidden md:block'> • </span>
+									<div className='text-xs'>
+										{moment(item?.attributes?.publishedAt).format(
+											"Do MMMM YYYY",
+										)}
+									</div>
+									<span className='mx-2 text-xs hidden md:block'> • </span>
+								</>
+							)}
 
 							<Text className='text-xs'>
-								Category:
+								{t("category")}:
 								<span className='text-blue-400 leading-6 hover:underline mt-2 hover:cursor-pointer'>
-									{" " + posts[0]?.attributes?.title}
+									{" " + categoryTitle?.attributes?.title}
 								</span>
 							</Text>
 						</div>
