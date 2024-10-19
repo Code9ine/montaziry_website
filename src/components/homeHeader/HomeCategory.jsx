@@ -24,7 +24,7 @@ const HomeCategory = () => {
 			<LeftMainTitle title={t("categories")} />
 			<div className='my-4'>
 				{categories?.map((item, i) => (
-					<Link key={i} href={`/category/${item.id}`}>
+					<Link key={i} href={`/category/${item?.attributes?.slug}`}>
 						<div
 							className={`text-sm bg-gray-300 px-2 ${
 								locale == "fa" ? "border-r-[6px]" : "border-l-[6px]"
